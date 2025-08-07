@@ -7,5 +7,19 @@
     <h1><%= title %></h1>
     <a href="/create-asset">Add asset</a>
     <a href="/">Back to menu</a>
+
+    <div>
+      <% if(assets.length> 0) { %> <% assets.forEach(asset=> {%>
+      <strong>ID:</strong> <%= asset.id%> <br />
+      <strong>Name: </strong> <%= asset.name %> <br />
+      <strong>Type: </strong> <%= asset.type%> <br />
+      <strong>Brand: </strong> <%= asset.brand%> <br />
+      <strong>Serial number: </strong> <%= asset.serail_number%> <br />
+      <strong>Status: </strong> <%= asset.status%> <br /><%})%>
+      <strong>Total assets: </strong> <%= assets.length%> asset(s) found <%}
+      else {%>
+      <p>No assets in the database yet.</p>
+      <%}%>
+    </div>
   </body>
 </html>

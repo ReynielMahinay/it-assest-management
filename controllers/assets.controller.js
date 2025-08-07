@@ -1,8 +1,11 @@
 const db = require('../db/queries')
 
 async function assetsGet(req, res){
+    const assets = await db.allAssetsGet();
+    
     res.render("assetsPage", {
-        title: "List of assets"
+        title: "List of assets",
+        assets: assets
     })
 }
 
