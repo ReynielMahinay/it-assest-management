@@ -2,20 +2,65 @@
 <html lang="en">
   <head>
     <title>Assets Page</title>
+    <style>
+      .assets-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      table,
+      th,
+      tr,
+      td {
+        border: 1px solid white;
+      }
+
+      table {
+        background: #00c8ff;
+      }
+
+      th,
+      tr,
+      td {
+        background: #ffffff;
+        padding: 5px;
+      }
+    </style>
   </head>
   <body>
     <h1><%= title %></h1>
     <a href="/create-asset">Add asset</a>
     <a href="/">Back to menu</a>
 
-    <div>
-      <% if(assets.length> 0) { %> <% assets.forEach(asset=> {%>
-      <strong>ID:</strong> <%= asset.id%> <br />
-      <strong>Name: </strong> <%= asset.name %> <br />
-      <strong>Type: </strong> <%= asset.type%> <br />
-      <strong>Brand: </strong> <%= asset.brand%> <br />
-      <strong>Serial number: </strong> <%= asset.serail_number%> <br />
-      <strong>Status: </strong> <%= asset.status%> <br /><%})%>
+    <div class="container">
+      <div class="assets-container">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Brand</th>
+              <th>Serial Number</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if(assets.length> 0) { %> <% assets.forEach(asset=> {%>
+            <tr>
+              <td><%= asset.id %></td>
+              <td><%= asset.name %></td>
+              <td><%= asset.type %></td>
+              <td><%= asset.brand %></td>
+              <td><%= asset.serial_number %></td>
+              <td><%= asset.status %></td>
+              <td><button>Edit</button> <button>delete</button></td>
+            </tr>
+            <%})%>
+          </tbody>
+        </table>
+      </div>
       <strong>Total assets: </strong> <%= assets.length%> asset(s) found <%}
       else {%>
       <p>No assets in the database yet.</p>
