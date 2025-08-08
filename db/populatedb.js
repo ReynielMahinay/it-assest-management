@@ -8,7 +8,8 @@ CREATE TABLE IF NOT EXISTS assets(
     type VARCHAR(25),
     brand VARCHAR(25),
     serial_number VARCHAR(100) UNIQUE,
-    status VARCHAR(25)
+    status VARCHAR(25),
+    time_created TIMESTAMP DEFUALT NOW()
     );
 `
 

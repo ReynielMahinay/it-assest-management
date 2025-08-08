@@ -33,6 +33,9 @@
     <a href="/">Back to menu</a>
 
     <div class="container">
+      <div>
+        <strong>Total asset: </strong> <%= assets.length%> asset(s) found
+      </div>
       <div class="assets-container">
         <table>
           <thead>
@@ -43,6 +46,7 @@
               <th>Brand</th>
               <th>Serial Number</th>
               <th>Status</th>
+              <th>Date & time</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -55,14 +59,24 @@
               <td><%= asset.brand %></td>
               <td><%= asset.serial_number %></td>
               <td><%= asset.status %></td>
-              <td><button>Edit</button> <button>delete</button></td>
+              <td>
+                <% if (asset.time_updated) { %> <%= asset.time_updated %> <% }
+                else { %> <%= asset.time_created %> <% } %>
+              </td>
+              <td>
+                <form action="/<%= asset.id%>/update" method="GET">
+                  <button>Edit</button>
+                </form>
+                <form action="/<%= asset.id %>/delete" method="POST">
+                  <button>delete</button>
+                </form>
+              </td>
             </tr>
             <%})%>
           </tbody>
         </table>
       </div>
-      <strong>Total assets: </strong> <%= assets.length%> asset(s) found <%}
-      else {%>
+      <%} else {%>
       <p>No assets in the database yet.</p>
       <%}%>
     </div>

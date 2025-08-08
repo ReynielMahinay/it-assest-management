@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <Title><%= title%></Title>
+  </head>
+  <body>
+    <h1><%= title%></h1>
+    <div>
+      <form action="/<%= asset.id%>/update" method="POST">
+        <fieldset>
+          <legend>Asset info</legend>
+          <label for="assetName">Name:</label>
+          <input
+            type="text"
+            name="assetName"
+            id="assetName"
+            value="<%= asset.name%>"
+          /><br />
+          <label for="assetType">Type:</label>
+          <select name="assetType" id="assetType">
+                <option value="laptop" <%= asset.type === 'laptop' ? 'selected' : '' %>>Laptop</option>
+                <option value="mouse" <%= asset.type === 'mouse' ? 'selected' : '' %>>Mouse</option>
+                <option value="keyboard" <%= asset.type === 'keyboard' ? 'selected' : '' %>>Keyboard</option>
+                <option value="headset" <%= asset.type === 'headset' ? 'selected' : '' %>>Headset</option>
+                <option value="laptop_bag" <%= asset.type === 'laptop_bag' ? 'selected' : '' %>>Laptop bag</option>
+                <option value="laptop_charger" <%= asset.type === 'laptop_charger' ? 'selected' : '' %>>Laptop 
+                    charger</option>
+                <option value="monitor" <%= asset.type === 'monitor' ? 'selected' : '' %>>Monitor</option>
+          </select><br />
+          <label for="assetBrand">Brand:</label>
+          <input type="text" name="assetBrand" id="assetBrand" value="<%= asset.brand%>"/><br />
+          <label for="assetNumber">Serial number:</label>
+          <input type="text" name="assetNumber" id="assetNumber" value="<%= asset.serial_number%>"/><br />
+          <label for="assetStatus">Status</label>
+          <select name="assetStatus" id="asssetStatus">
+            <option value="assigned" <%= asset.status === 'assigned'? 'selected': ' '%>>Assigned</option>
+            <option value="unassigned" <%= asset.status === 'unassigned'? 'selected': ' '%>>Unassigned</option>
+          </select> <br/>
+          <button type="submit">Submit</button> 
+          <button type="button" onclick="window.location.href='/assets'">Cancel</button>
+
+        </fieldset>
+      </form>
+    </div>
+    <a href="/assets">Back to asset list</a>
+  </body>
+</html>

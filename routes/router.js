@@ -10,5 +10,8 @@ router.get('/', (req, res) => {
 router.get('/assets', assetsController.assetsGet)
 router.get('/create-asset', assetsController.assetCreateGet)
 router.post('/create-asset', assetsController.assetCreatePost)
+router.get('/:id/update', assetsController.assetUpdateGet)
+router.post('/:id/update', assetsController.updateEditedAssetPost)
+router.post('/:id/delete', assetsController.deleteAssets)
 
 module.exports = router;
